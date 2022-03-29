@@ -23,3 +23,31 @@
 - 采用 **mmdet** 框架，调用官方 **实例分割** 代码进行尝试。；
 - **实例分割** 和 **目标检测** 代码出现都出现训练时 IoU 计算结果始终为 0 而且不变的问题，推测是由于数据集或者参数设置的原因；
 - 将官方代码中的  ``mmdet/datasets/coco.py`` 中的 `class CocoDataset` 中的 **CLASSES=** 进行更改，解决上述问题。
+
+## VSCode debugger launch config
+- instance segmentation
+``` json
+{
+    "env": {"PYTHONPATH" : "${workspaceRoot}"},
+    "name": "knet:debug",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceRoot}/tools/train.py",
+    "console": "integratedTerminal",
+    "justMyCode": false,
+    "args": ["configs/det/knet/knet_s3_r50_fpn_1x_ctw1500.py","--gpus", "1"]
+},
+```
+- object detection
+``` json
+{
+    "env": {"PYTHONPATH" : "${workspaceRoot}"},
+    "name": "knet:debug",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceRoot}/tools/train.py",
+    "console": "integratedTerminal",
+    "justMyCode": false,
+    "args": ["configs/det/knet/knet_s3_r50_fpn_1x_ctw1500.py","--gpus", "1"]
+},
+```
