@@ -4,6 +4,7 @@
 ## 概述
 - 根据数据类型和格式（采用 *lableIme* 标注的语义分割格式），采用 **目标检测** 和 **实例分割** 方法尝试；
 - 由于数据量较少，采用 **预训练** 和 **数据增强** 是非常必须的手段；
+- 基于 mmdet 的目标检测和实例分割模型训练和部署，参考 https://github.com/lifuguan/SOLOv2-mmdet 实现；
 - 预测结果示例（目标检测）。
 
 ![image](https://user-images.githubusercontent.com/59753705/160855029-c45cbb0f-9f70-436d-b6b1-3526f729ecbf.png)
