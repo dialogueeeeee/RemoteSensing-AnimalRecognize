@@ -1,4 +1,4 @@
-# Recognition-RemoteSensingAnimal
+# RemoteSensing-AnimalRecognize
 基于深度学习的遥感影像牛羊马识别。
 
 ## 概述
