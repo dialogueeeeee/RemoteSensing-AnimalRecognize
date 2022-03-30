@@ -1,5 +1,7 @@
 # Recognition-RemoteSensingAnimal
 这里是遥感影像牛羊马识别。
+![778b6d0175014dca043d8268abfdffa](https://user-images.githubusercontent.com/59753705/160853494-9ce4373e-ee44-446b-a11c-b556455e2aa6.png)
+
 
 ## 概述
 - 根据数据类型和格式（采用 *lableIme* 标注的语义分割格式），采用 **语义分割** 方法尝试；
@@ -24,7 +26,7 @@
 ``` json
 {
     "env": {"PYTHONPATH" : "${workspaceRoot}"},
-    "name": "knet:debug",
+    "name": "train:debug",
     "type": "python",
     "request": "launch",
     "program": "${workspaceRoot}/tools/train.py",
@@ -37,7 +39,7 @@
 ``` json
 {
     "env": {"PYTHONPATH" : "${workspaceRoot}"},
-    "name": "knet:debug",
+    "name": "train:debug",
     "type": "python",
     "request": "launch",
     "program": "${workspaceRoot}/tools/train.py",
