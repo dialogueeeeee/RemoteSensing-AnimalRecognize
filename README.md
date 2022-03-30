@@ -11,18 +11,13 @@
 - （可选）修改 `configs/_base_/datasets/coco_detection.py` 中的 image_scale 建议改成 (800,500) ，*（可根据训练条件选择）* 这里是多尺度训练；
 - 修改 `configs/_base_/models/faster_rcnn_r50_fpn.py` 中的 **num_classes=x** ，x 为自己数据中的目标类别个数；
 - 修改 `mmdet/core/evaluation/class_names.py` 中的 `def coco_classes` 中 `return` 的类别，修改为自己数据集中的类别；
-- 修改官方库 ``mmdet/datasets/coco.py`` 中的 `class CocoDataset` 中的 **CLASSES=** 改为自己数据集中的类别。
+- （不建议）修改官方库 ``mmdet/datasets/coco.py`` 中的 `class CocoDataset` 中的 **CLASSES=** 改为自己数据集中的类别；
+- （建议）新建自己的 ``self_dataset.py`` 文件，其中自己的 `dataset` 类需要继承官方的 `CustomDataset` 类。
 
 ## Usage
 - `json2xml.py` 用于 `.json` 和 `.xml` 格式转化；
 - `labelIme2coco.py` 用于 **lableIme** 标注生成的 `.json` 文件和 **coco 格式** 转化（*实例分割* 和 *目标检测*）；
 - 按照官网 https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html 配置 **mmdet** 环境。
-
-## 计划
-- 根据输入数据类型，先将 ``.json`` 文件转化为语义分割的标签 Mask 形式文件 *（已完成：将 lableIme 格式转化为 coco 格式）* ；
-- 采用 **mmdet** 框架，调用官方 **实例分割** 代码进行尝试。；
-- **实例分割** 和 **目标检测** 代码出现都出现训练时 IoU 计算结果始终为 0 而且不变的问题，推测是由于数据集或者参数设置的原因；
-- 将官方代码中的  ``mmdet/datasets/coco.py`` 中的 `class CocoDataset` 中的 **CLASSES=** 进行更改，解决上述问题。
 
 ## VSCode debugger launch config
 - instance segmentation
@@ -35,7 +30,7 @@
     "program": "${workspaceRoot}/tools/train.py",
     "console": "integratedTerminal",
     "justMyCode": false,
-    "args": ["configs/det/knet/knet_s3_r50_fpn_1x_ctw1500.py","--gpus", "1"]
+    "args": ["configs/det/decoupled_solo_r50_fpn_1x_coco.py","--gpus", "1"]
 },
 ```
 - object detection
@@ -48,6 +43,6 @@
     "program": "${workspaceRoot}/tools/train.py",
     "console": "integratedTerminal",
     "justMyCode": false,
-    "args": ["configs/det/knet/knet_s3_r50_fpn_1x_ctw1500.py","--gpus", "1"]
+    "args": ["configs/det/faster_rcnn_r101_fpn_1x_coco.py.py","--gpus", "1"]
 },
 ```
