@@ -18,7 +18,8 @@
 ## Usage
 - `json2xml.py` 用于 `.json` 和 `.xml` 格式转化；
 - `labelIme2coco.py` 用于 **lableIme** 标注生成的 `.json` 文件和 **coco 格式** 转化；
-- 按照官网 https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html 配置 **mmdet** 环境。
+- 按照官网 https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html 配置 **mmdet** 框架；
+- 按照 **VSCode debugger launch config** 配置运行文件。
 
 ## VSCode debugger launch config
 - instance segmentation
