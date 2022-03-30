@@ -16,7 +16,7 @@
 ## Usage
 - `json2xml.py` 用于 `.json` 和 `.xml` 格式转化；
 - `labelIme2coco.py` 用于 **lableIme** 标注生成的 `.json` 文件和 **coco 格式** 转化（*实例分割* 和 *目标检测*）；
-- 按以下命令运行。
+- 按照官网 https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html 配置 **mmdet** 环境。
 
 ## 计划
 - 根据输入数据类型，先将 ``.json`` 文件转化为语义分割的标签 Mask 形式文件 *（已完成：将 lableIme 格式转化为 coco 格式）* ；
