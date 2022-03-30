@@ -1,14 +1,13 @@
 # Recognition-RemoteSensingAnimal
 这里是遥感影像牛羊马识别。
-![778b6d0175014dca043d8268abfdffa](https://user-images.githubusercontent.com/59753705/160853494-9ce4373e-ee44-446b-a11c-b556455e2aa6.png)
-
+![778b6d0175014dca043d8268abfdffa](https://user-images.githubusercontent.com/59753705/160854127-5811d811-4af8-4725-940f-bc3a39fd1356.png)
 
 ## 概述
 - 根据数据类型和格式（采用 *lableIme* 标注的语义分割格式），采用 **语义分割** 方法尝试；
 - 经分析，原标注中没有 *背景 background* 语义标签，改用 **实例分割** 方法尝试； 
 - 由于数据量较少，采用**预训练**和**数据增强**是非常必须的手段。
 
-## 按需求修改相关文件 
+## 用自己数据集训练
 由于使用自己的遥感图像数据集，应按以下步骤修改例程文件。
 - （可选）修改 `configs/_base_/datasets/coco_detection.py` 中的 image_scale 建议改成 (800,500) ，*（可根据训练条件选择）* 这里是多尺度训练；
 - 修改 `configs/_base_/models/faster_rcnn_r50_fpn.py` 中的 **num_classes=x** ，x 为自己数据中的目标类别个数；
@@ -18,7 +17,7 @@
 
 ## Usage
 - `json2xml.py` 用于 `.json` 和 `.xml` 格式转化；
-- `labelIme2coco.py` 用于 **lableIme** 标注生成的 `.json` 文件和 **coco 格式** 转化（*实例分割* 和 *目标检测*）；
+- `labelIme2coco.py` 用于 **lableIme** 标注生成的 `.json` 文件和 **coco 格式** 转化；
 - 按照官网 https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html 配置 **mmdet** 环境。
 
 ## VSCode debugger launch config
