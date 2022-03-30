@@ -1,6 +1,6 @@
 # Recognition-RemoteSensingAnimal
 这里是遥感影像牛羊马识别。
-![778b6d0175014dca043d8268abfdffa](https://user-images.githubusercontent.com/59753705/160854127-5811d811-4af8-4725-940f-bc3a39fd1356.png)
+![image](https://user-images.githubusercontent.com/59753705/160855029-c45cbb0f-9f70-436d-b6b1-3526f729ecbf.png)
 
 ## 概述
 - 根据数据类型和格式（采用 *lableIme* 标注的语义分割格式），采用 **语义分割** 方法尝试；
