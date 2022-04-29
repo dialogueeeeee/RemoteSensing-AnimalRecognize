@@ -8,7 +8,7 @@
 - 采用 FPN 和 ResNet50 作为 backbone ，分别使用 **Faster R-CNN** 和 **SOLOV2** 实现**目标检测** 和 **实例分割** 。
 - 预测结果示例（目标检测）。
 
-![image](https://user-images.githubusercontent.com/59753705/160855029-c45cbb0f-9f70-436d-b6b1-3526f729ecbf.png)
+<div align=center><img src="https://user-images.githubusercontent.com/59753705/160855029-c45cbb0f-9f70-436d-b6b1-3526f729ecbf.png" width="600px"></div>
 
 ## Usage
 - `json2xml.py` 用于 `.json` 和 `.xml` 格式转化；
