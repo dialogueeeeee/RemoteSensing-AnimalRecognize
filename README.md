@@ -25,7 +25,38 @@
 - （建议）新建自己的 ``self_dataset.py`` 文件，其中自己的 `dataset` 类需要继承官方的 `CustomDataset` 类。
 
 ### 补充：新建自己的数据集配置文件
-需要准备一个配置文件来成功加载数据集。假设我们想要用 remotesense-animal dataset 来训练配备了 FPN 的 Mask R-CNN ，如下是我们的配置文件。假设配置文件命名为 mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_remotesense_animal.py，相应保存路径为 configs/balloon/，配置文件内容如下所示。
+需要准备一个配置文件来成功加载数据集。假设我们想要用 remotesense-animal dataset 来训练配备了 FPN 的 Mask R-CNN ，如下是我们的配置文件。假设配置文件命名为 mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_remotesense_animal.py，相应保存路径为 configs/balloon/，配置文件内容如下所示，更多内容详见[官网教程](https://github.com/open-mmlab/mmdetection/blob/master/docs/zh_cn/2_new_data_model.md)。
+``` python
+# 这个新的配置文件继承自一个原始配置文件，只需要突出必要的修改部分即可
+_base_ = 'mask_rcnn/mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_coco.py'
+
+# 我们需要对头中的类别数量进行修改来匹配数据集的标注
+model = dict(
+    roi_head=dict(
+        bbox_head=dict(num_classes=1),
+        mask_head=dict(num_classes=1)))
+
+# 修改数据集相关设置
+dataset_type = 'CocoDataset'
+classes = ('balloon',)
+data = dict(
+    train=dict(
+        img_prefix='balloon/train/',
+        classes=classes,
+        ann_file='balloon/train/annotation_coco.json'),
+    val=dict(
+        img_prefix='balloon/val/',
+        classes=classes,
+        ann_file='balloon/val/annotation_coco.json'),
+    test=dict(
+        img_prefix='balloon/val/',
+        classes=classes,
+        ann_file='balloon/val/annotation_coco.json'))
+
+# 我们可以使用预训练的 Mask R-CNN 来获取更好的性能
+load_from = 'checkpoints/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth'
+```
+
 
 ## VSCode debugger launch config
 - instance segmentation
