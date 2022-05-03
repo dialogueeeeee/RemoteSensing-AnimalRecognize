@@ -24,6 +24,9 @@
 - （不建议）修改官方库 ``mmdet/datasets/coco.py`` 中的 `class CocoDataset` 中的 **CLASSES=** 改为自己数据集中的类别；
 - （建议）新建自己的 ``self_dataset.py`` 文件，其中自己的 `dataset` 类需要继承官方的 `CustomDataset` 类。
 
+### 补充：新建自己的数据集配置文件
+需要准备一个配置文件来成功加载数据集。假设我们想要用 remotesense-animal dataset 来训练配备了 FPN 的 Mask R-CNN ，如下是我们的配置文件。假设配置文件命名为 mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_remotesense_animal.py，相应保存路径为 configs/balloon/，配置文件内容如下所示。
+
 ## VSCode debugger launch config
 - instance segmentation
 ``` json
