@@ -25,7 +25,7 @@
 - （建议）新建自己的 ``self_dataset.py`` 文件，其中自己的 `dataset` 类需要继承官方的 `CustomDataset` 类。
 
 ### 补充：新建自己的数据集配置文件
-需要准备一个配置文件来成功加载数据集。假设我们想要用 remotesense-animal dataset 来训练配备了 FPN 的 Mask R-CNN ，如下是我们的配置文件。假设配置文件命名为 mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_remotesense_animal.py，相应保存路径为 configs/remotesense-animal/，配置文件内容如下所示，更多内容详见[官网教程](https://github.com/open-mmlab/mmdetection/blob/master/docs/zh_cn/2_new_data_model.md)。
+需要准备一个配置文件来成功加载数据集。假设我们想要用 *remotesense-animal dataset* 来训练配备了 `FPN` 的 `Mask R-CNN` ，如下是我们的配置文件。假设配置文件命名为 `mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_remotesense_animal.py` ，相应保存路径为 `configs/remotesense-animal/` ，配置文件内容如下所示，更多内容详见[官网教程](https://github.com/open-mmlab/mmdetection/blob/master/docs/zh_cn/2_new_data_model.md)。
 ``` python
 # 这个新的配置文件继承自一个原始配置文件，只需要突出必要的修改部分即可
 _base_ = 'mask_rcnn/mask_rcnn_r50_caffe_fpn_mstrain-poly_1x_coco.py'
